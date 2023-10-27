@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glam Gem Jewelry Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .dashboard {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .tile {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        background: #f0f0f0;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+      }
+      .tile p {
+        font-size: 14px;
+      }
+      .carousel {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .carousel img {
+        width: 100%;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Glam Gem Jewelry</h1>
+    <p>Your source for exquisite jewelry</p>
+
+    <div class="carousel">
+      <img src="image1.jpg" alt="Jewelry Image 1" />
+      <img src="image2.jpg" alt="Jewelry Image 2" />
+      <img src="image3.jpg" alt="Jewelry Image 3" />
+    </div>
+
+    <div class="dashboard">
+      <div class="tile">
+        <p>
+          Quality: We source and craft our jewelry with the utmost care, using
+          high-quality materials that stand the test of time.
+        </p>
+      </div>
+      <div class="tile">
+        <p>
+          Diversity: Our collection boasts a wide variety of styles, from
+          classic to contemporary, ensuring there's something for every taste
+          and occasion.
+        </p>
+      </div>
+      <div class="tile">
+        <p>
+          Affordability: We believe that everyone should have access to
+          beautiful jewelry, which is why we offer competitive prices without
+          compromising on quality.
+        </p>
+      </div>
+      <div class="tile">
+        <p>
+          Customer-Centric: Your satisfaction is our priority. We are here to
+          assist you, answer your questions, and make your shopping experience
+          as enjoyable as possible.
+        </p>
+      </div>
+      <div class="tile">
+        <p>
+          Discover Your Sparkle: From stunning necklaces to delicate bracelets,
+          from vintage-inspired designs to modern masterpieces, Glam Gem is your
+          gateway to discovering jewelry that inspires confidence and adds that
+          extra sparkle to your everyday moments and special occasions.
+        </p>
+      </div>
+      <div class="tile">
+        <p>
+          Join Our Community: We invite you to join our growing community of
+          jewelry enthusiasts, where you can share your stories, style tips, and
+          the love of all things glamorous. Follow us for the latest trends,
+          exclusive offers, and a daily dose of jewelry inspiration.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentImage = 0;
+      const images = document.querySelectorAll(".carousel img");
+
+      function showImage(index) {
+        if (index < 0) {
+          currentImage = images.length - 1;
+        } else if (index >= images.length) {
+          currentImage = 0;
+        }
+        for (let i = 0; i < images.length; i++) {
+          images[i].style.display = "none";
+        }
+        images[currentImage].style.display = "block";
+      }
+
+      function nextImage() {
+        currentImage++;
+        showImage(currentImage);
+      }
+
+      function previousImage() {
+        currentImage--;
+        showImage(currentImage);
+      }
+
+      // Initial display
+      showImage(currentImage);
+
+      // Automatic carousel (change image every 3 seconds)
+      setInterval(nextImage, 3000);
+    </script>
+  </body>
+</html>
